@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": ["warn"],
+    "max-len": [
+      "error",
+      {
+        "code": 100
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "build",
+    "config",
+    "scripts",
+    "src/**/*.test.ts*",
+    "src/thirdparty.ts",
+    "src/**/*.d.ts"
+  ]
+}
