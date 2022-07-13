@@ -11,17 +11,14 @@ body,
   overflow: hidden;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-display: swap;
-}
-
 * {
+  font-family: 'Inter', sans-serif !important;
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-display: swap;
 }
 
 *::-webkit-scrollbar {

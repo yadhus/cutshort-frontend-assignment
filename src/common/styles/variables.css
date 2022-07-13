@@ -1,7 +1,57 @@
 :root {
   --white: #ffffff;
 
+  /* color palette generated using Eva Design System -> https://colors.eva.design/ */
+
+  --colors-primary-100: #e1dcfc;
+  --colors-primary-200: #c3b9fa;
+  --colors-primary-300: #a193f1;
+  --colors-primary-400: #8375e3;
   --colors-primary-500: #5a4ad1;
+  --colors-primary-600: #4336b3;
+  --colors-primary-700: #2f2596;
+  --colors-primary-800: #1f1779;
+  --colors-primary-900: #140e64;
+
+  --colors-success-100: #edfdd3;
+  --colors-success-200: #d8fba8;
+  --colors-success-300: #b9f37b;
+  --colors-success-400: #9ae759;
+  --colors-success-500: #6ed827;
+  --colors-success-600: #52b91c;
+  --colors-success-700: #3a9b13;
+  --colors-success-800: #257d0c;
+  --colors-success-900: #176707;
+
+  --colors-info-100: #cbfef5;
+  --colors-info-200: #98fdf4;
+  --colors-info-300: #65faf9;
+  --colors-info-400: #3ee8f5;
+  --colors-info-500: #02ccef;
+  --colors-info-600: #019fcd;
+  --colors-info-700: #0178ac;
+  --colors-info-800: #00568a;
+  --colors-info-900: #003e72;
+
+  --colors-warning-100: #fceecb;
+  --colors-warning-200: #fad998;
+  --colors-warning-300: #f2bb63;
+  --colors-warning-400: #e69c3c;
+  --colors-warning-500: #d67004;
+  --colors-warning-600: #b85702;
+  --colors-warning-700: #9a4102;
+  --colors-warning-800: #7c2e01;
+  --colors-warning-900: #662100;
+
+  --colors-danger-100: #fee5d8;
+  --colors-danger-200: #fdc5b2;
+  --colors-danger-300: #fb9e8b;
+  --colors-danger-400: #f7796d;
+  --colors-danger-500: #f23e3e;
+  --colors-danger-600: #d02d3b;
+  --colors-danger-700: #ae1f38;
+  --colors-danger-800: #8c1333;
+  --colors-danger-900: #740b30;
 
   --gray-1: rgba(0, 0, 0, 0.04);
   --gray-2: rgba(0, 0, 0, 0.08);
