@@ -1,0 +1,108 @@
+.ed-text-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+}
+
+.ed-text-input-label {
+  font-weight: var(--font-weight-600);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.ed-text-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid;
+  border-color: var(--gray-3);
+  border-radius: var(--border-radius);
+  margin: 0;
+  color: var(--text-color-primary);
+  outline: none;
+  height: 40px;
+  padding: 0 var(--space-12);
+  transition: border-color 150ms ease-out;
+}
+
+.ed-text-input-wrapper input {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.ed-text-input-required {
+  color: var(--colors-danger-500);
+}
+
+.ed-text-input {
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 0;
+  color: var(--text-color-primary);
+}
+
+.ed-text-input-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.ed-text-input-help-text {
+  margin-top: var(--space-8);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color-primary);
+}
+
+.ed-text-input-wrapper:hover,
+.ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+  border: 1px solid var(--colors-primary-500);
+}
+
+.ed-text-input-wrapper:not(.ed-text-input-error):active,
+.ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+  box-shadow: 0 0 0 4px var(--colors-primary-50);
+}
+
+.ed-text-input-error {
+  color: var(--colors-danger-500);
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: var(--space-8);
+}
+
+.ed-text-input-wrapper.ed-text-input-error {
+  border: 1px solid var(--colors-danger-500);
+  margin: 0;
+}
+
+.ed-text-input-container-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.ed-text-input-container-disabled .ed-text-input {
+  background-color: #fff;
+  cursor: not-allowed;
+}
+
+.ed-text-input-container-disabled .ed-text-input-wrapper:hover,
+.ed-text-input-container-disabled
+  .ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+  border: 1px solid var(--gray-3);
+}
+
+.ed-text-input-container-disabled
+  .ed-text-input-wrapper:not(.ed-text-input-error):active,
+.ed-text-input-container-disabled
+  .ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+  box-shadow: none;
+}
