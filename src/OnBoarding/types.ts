@@ -19,3 +19,8 @@ export interface WorkspaceInfo {
   workspaceName: string;
   workspaceURL?: string;
 }
+
+export enum PLAN {
+  USER = 'user',
+  TEAM = 'team',
+}

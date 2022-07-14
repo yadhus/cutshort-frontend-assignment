@@ -1,15 +1,17 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import { Button, BUTTON_SIZES } from '../common/components/Button';
 
 import { Welcome } from './Welcome';
 import { Workspace } from './Workspace';
+import { Planning } from './Planning';
 
 import { getOnBoardingStage } from './bloc';
 
 import {
   ONBOARDING_MOVE_STAGE,
   ONBOARDING_STAGE,
+  PLAN,
   UserInfo,
   WorkspaceInfo,
 } from './types';
@@ -35,6 +37,8 @@ export const OnBoarding = () => {
     workspaceURL?: string;
   }>();
 
+  const [plan, setPlan] = useState<PLAN>();
+
   const handleNextStage = () => {
     switch (currentOnBoardingStage) {
       case ONBOARDING_STAGE.WELCOME:
@@ -57,6 +61,12 @@ export const OnBoarding = () => {
           );
         }
         break;
+      case ONBOARDING_STAGE.PLANNING:
+        // No check added because one plan will always be selected at any case
+        setCurrentOnBoardingStage(
+          getOnBoardingStage(ONBOARDING_MOVE_STAGE.NEXT, currentOnBoardingStage)
+        );
+        break;
     }
   };
 
@@ -68,7 +78,11 @@ export const OnBoarding = () => {
     setWorkspaceInfo(workspaceInfo);
   };
 
-  console.log('OnBoarding Info === ', userInfo, workspaceInfo);
+  const onUpdatePlan = useCallback((plan: PLAN) => {
+    setPlan(plan);
+  }, []);
+
+  console.log('OnBoarding Info === ', userInfo, workspaceInfo, plan);
 
   return (
     <div className={styles.onBoardingContainer}>
@@ -82,6 +96,9 @@ export const OnBoarding = () => {
       )}
       {currentOnBoardingStage === ONBOARDING_STAGE.WORKSPACE && (
         <Workspace ref={workspaceStageRef} onUpdate={onUpdateWorkspaceInfo} />
+      )}
+      {currentOnBoardingStage === ONBOARDING_STAGE.PLANNING && (
+        <Planning onUpdate={onUpdatePlan} />
       )}
       <Button size={BUTTON_SIZES.LARGE} width="320px" onClick={handleNextStage}>
         Create Workspace
