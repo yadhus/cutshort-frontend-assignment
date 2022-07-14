@@ -23,9 +23,12 @@
   background: var(--colors-primary-500);
 }
 
-.ed-button-solid:hover,
-.ed-button-solid:focus {
+.ed-button-solid:hover {
   background: var(--colors-primary-600);
+}
+
+.ed-button-solid:focus {
+  outline: 1px solid var(--colors-primary-600);
 }
 
 .ed-button-solid:active {
