@@ -6,6 +6,7 @@
   height: 100%;
   width: 100%;
   row-gap: var(--space-20);
+  overflow: auto;
 }
 
 .onBoardingStages {
@@ -14,6 +15,7 @@
   align-items: center;
   justify-content: center;
   row-gap: var(--space-20);
+  padding: 0 var(--space-8) var(--space-8);
 }
 
 .logoContainer {
