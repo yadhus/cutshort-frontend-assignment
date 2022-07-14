@@ -4,3 +4,13 @@ export enum ONBOARDING_STAGE {
   PLANNING = 'planning',
   COMPLETED = 'completed',
 }
+
+export enum ONBOARDING_MOVE_STAGE {
+  NEXT = 'next',
+  PREVIOUS = 'previous',
+}
+
+export interface UserInfo {
+  fullName: string;
+  displayName: string;
+}

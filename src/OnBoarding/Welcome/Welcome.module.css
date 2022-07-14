@@ -12,6 +12,7 @@
 
 .welcomeInfo {
   row-gap: var(--space-8);
+  margin-bottom: var(--space-16);
 }
 
 .nameInputsContainer {

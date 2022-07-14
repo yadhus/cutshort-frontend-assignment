@@ -5,4 +5,16 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  row-gap: var(--space-16);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer > div:last-child {
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-900);
+  font-size: var(--font-size-24);
 }
