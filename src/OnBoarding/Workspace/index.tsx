@@ -53,7 +53,7 @@ export const Workspace = forwardRef(
     return (
       <div className={styles.workspaceContainer}>
         <div className={styles.workspaceInfo}>
-          <div className="heading-2">Let's set up a home for all your work</div>
+          <div className="heading-1">Let's set up a home for all your work</div>
           <div className="subtitle-2-secondary">
             You can always create another workspace later.
           </div>
@@ -65,11 +65,13 @@ export const Workspace = forwardRef(
             onBlur={(val) => onUpdateWorkspaceInfo('workspaceName', val)}
             onFocus={(val) => onFocusWorkspaceInfo('workspaceName')}
             error={errors?.workspaceName}
+            fullWidth={true}
           />
           <Input
             label="Workspace URL"
             placeholder="Example"
             onBlur={(val) => onUpdateWorkspaceInfo('workspaceURL', val)}
+            fullWidth={true}
           />
         </div>
       </div>

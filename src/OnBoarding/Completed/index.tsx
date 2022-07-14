@@ -17,7 +17,7 @@ export const Completed = (props: CompletedProps) => {
         <div className={styles.completedStatus}>
           <BiCheck size="24" color="#ffffff" />
         </div>
-        <div className="heading-2">
+        <div className="heading-1">
           Congratulations, {userInfo.displayName}!
         </div>
         <div className="subtitle-2-secondary">

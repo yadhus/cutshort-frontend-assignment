@@ -27,7 +27,7 @@ export const Planning = (props: PlanningProps) => {
   return (
     <div className={styles.planningContainer}>
       <div className={styles.planningInfo}>
-        <div className="heading-2">How are you planning to use Eden?</div>
+        <div className="heading-1">How are you planning to use Eden?</div>
         <div className="content-2-secondary">
           We'll streamline your setup experience accordingly
         </div>

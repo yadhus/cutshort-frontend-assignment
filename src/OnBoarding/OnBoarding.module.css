@@ -5,7 +5,15 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  row-gap: var(--space-16);
+  row-gap: var(--space-20);
+}
+
+.onBoardingStages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: var(--space-20);
 }
 
 .logoContainer {

@@ -63,7 +63,7 @@ export const Welcome = forwardRef(
     return (
       <div className={styles.welcomeContainer}>
         <div className={styles.welcomeInfo}>
-          <div className="heading-2">Welcome! First things first...</div>
+          <div className="heading-1">Welcome! First things first...</div>
           <div className="subtitle-2-secondary">
             You can always change them later.
           </div>
@@ -76,6 +76,7 @@ export const Welcome = forwardRef(
             onBlur={(val) => onUpdateUserInfo('fullName', val)}
             onFocus={() => onFocusUserInfo('fullName')}
             error={errors?.fullName}
+            fullWidth={true}
           />
           <Input
             label="Display Name"
@@ -84,6 +85,7 @@ export const Welcome = forwardRef(
             onBlur={(val) => onUpdateUserInfo('displayName', val)}
             onFocus={() => onFocusUserInfo('displayName')}
             error={errors?.displayName}
+            fullWidth={true}
           />
         </div>
       </div>

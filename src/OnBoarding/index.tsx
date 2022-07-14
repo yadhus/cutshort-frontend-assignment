@@ -89,23 +89,29 @@ export const OnBoarding = () => {
         <div>Eden</div>
       </div>
       {/* <div>Stepper</div> */}
-      {currentOnBoardingStage === ONBOARDING_STAGE.WELCOME && (
-        <Welcome ref={welcomeStageRef} onUpdate={onUpdateUserInfo} />
-      )}
-      {currentOnBoardingStage === ONBOARDING_STAGE.WORKSPACE && (
-        <Workspace ref={workspaceStageRef} onUpdate={onUpdateWorkspaceInfo} />
-      )}
-      {currentOnBoardingStage === ONBOARDING_STAGE.PLANNING && (
-        <Planning onUpdate={onUpdatePlan} />
-      )}
-      {currentOnBoardingStage === ONBOARDING_STAGE.COMPLETED && userInfo && (
-        <Completed userInfo={userInfo} />
-      )}
-      <Button size={BUTTON_SIZES.LARGE} width="320px" onClick={handleNextStage}>
-        {currentOnBoardingStage !== ONBOARDING_STAGE.COMPLETED
-          ? 'Create Workspace'
-          : 'Launch Eden'}
-      </Button>
+      <div className={styles.onBoardingStages}>
+        {currentOnBoardingStage === ONBOARDING_STAGE.WELCOME && (
+          <Welcome ref={welcomeStageRef} onUpdate={onUpdateUserInfo} />
+        )}
+        {currentOnBoardingStage === ONBOARDING_STAGE.WORKSPACE && (
+          <Workspace ref={workspaceStageRef} onUpdate={onUpdateWorkspaceInfo} />
+        )}
+        {currentOnBoardingStage === ONBOARDING_STAGE.PLANNING && (
+          <Planning onUpdate={onUpdatePlan} />
+        )}
+        {currentOnBoardingStage === ONBOARDING_STAGE.COMPLETED && userInfo && (
+          <Completed userInfo={userInfo} />
+        )}
+        <Button
+          size={BUTTON_SIZES.LARGE}
+          width="360px"
+          onClick={handleNextStage}
+        >
+          {currentOnBoardingStage !== ONBOARDING_STAGE.COMPLETED
+            ? 'Create Workspace'
+            : 'Launch Eden'}
+        </Button>
+      </div>
     </div>
   );
 };
