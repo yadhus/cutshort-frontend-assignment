@@ -5,6 +5,7 @@ import { Button, BUTTON_SIZES } from '../common/components/Button';
 import { Welcome } from './Welcome';
 import { Workspace } from './Workspace';
 import { Planning } from './Planning';
+import { Completed } from './Completed';
 
 import { getOnBoardingStage } from './bloc';
 
@@ -27,10 +28,7 @@ export const OnBoarding = () => {
   const [currentOnBoardingStage, setCurrentOnBoardingStage] =
     useState<ONBOARDING_STAGE>(ONBOARDING_STAGE.WELCOME);
 
-  const [userInfo, setUserInfo] = useState<{
-    fullName?: string;
-    displayName?: string;
-  }>();
+  const [userInfo, setUserInfo] = useState<UserInfo>();
 
   const [workspaceInfo, setWorkspaceInfo] = useState<{
     workspaceName?: string;
@@ -100,8 +98,13 @@ export const OnBoarding = () => {
       {currentOnBoardingStage === ONBOARDING_STAGE.PLANNING && (
         <Planning onUpdate={onUpdatePlan} />
       )}
+      {currentOnBoardingStage === ONBOARDING_STAGE.COMPLETED && userInfo && (
+        <Completed userInfo={userInfo} />
+      )}
       <Button size={BUTTON_SIZES.LARGE} width="320px" onClick={handleNextStage}>
-        Create Workspace
+        {currentOnBoardingStage !== ONBOARDING_STAGE.COMPLETED
+          ? 'Create Workspace'
+          : 'Launch Eden'}
       </Button>
     </div>
   );
