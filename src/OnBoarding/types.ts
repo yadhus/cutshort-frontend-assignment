@@ -14,3 +14,8 @@ export interface UserInfo {
   fullName: string;
   displayName: string;
 }
+
+export interface WorkspaceInfo {
+  workspaceName: string;
+  workspaceURL?: string;
+}
