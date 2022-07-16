@@ -68,7 +68,12 @@ export const Workspace = forwardRef(
             fullWidth={true}
           />
           <Input
-            label="Workspace URL"
+            label={
+              <div className={styles.workspaceURLLabel}>
+                Workspace URL&nbsp;
+                <span>(optional)</span>
+              </div>
+            }
             placeholder="Example"
             onBlur={(val) => onUpdateWorkspaceInfo('workspaceURL', val)}
             fullWidth={true}

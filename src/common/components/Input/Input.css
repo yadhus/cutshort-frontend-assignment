@@ -22,8 +22,7 @@
   height: 40px;
   font-size: 14px;
   padding: 0 var(--space-12);
-  border: 1px solid;
-  border-color: var(--gray-3);
+  border: 1px solid var(--gray-3);
   border-radius: var(--border-radius);
   border-right: none;
   border-top-right-radius: 0;
