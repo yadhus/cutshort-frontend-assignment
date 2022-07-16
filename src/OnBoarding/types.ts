@@ -5,6 +5,11 @@ export enum ONBOARDING_STAGE {
   COMPLETED = 'completed',
 }
 
+export interface ONBOARDING_STATE {
+  step: number;
+  stage: ONBOARDING_STAGE;
+}
+
 export enum ONBOARDING_MOVE_STAGE {
   NEXT = 'next',
   PREVIOUS = 'previous',

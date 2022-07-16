@@ -28,3 +28,7 @@
   font-weight: var(--font-weight-900);
   font-size: var(--font-size-24);
 }
+
+.stepsContainer {
+  margin: var(--space-40) 0;
+}

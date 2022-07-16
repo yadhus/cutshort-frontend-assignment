@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 
 import { Button, BUTTON_SIZES } from '../common/components/Button';
+import { Step, Steps } from '../common/components/Steps';
 
 import { Welcome } from './Welcome';
 import { Workspace } from './Workspace';
@@ -12,6 +13,7 @@ import { getOnBoardingStage } from './bloc';
 import {
   ONBOARDING_MOVE_STAGE,
   ONBOARDING_STAGE,
+  ONBOARDING_STATE,
   PLAN,
   UserInfo,
   WorkspaceInfo,
@@ -25,8 +27,8 @@ export const OnBoarding = () => {
   const welcomeStageRef = useRef<{ onDone: () => boolean }>(null);
   const workspaceStageRef = useRef<{ onDone: () => boolean }>(null);
 
-  const [currentOnBoardingStage, setCurrentOnBoardingStage] =
-    useState<ONBOARDING_STAGE>(ONBOARDING_STAGE.WELCOME);
+  const [currentOnBoardingState, setCurrentOnBoardingState] =
+    useState<ONBOARDING_STATE>({ step: 1, stage: ONBOARDING_STAGE.WELCOME });
 
   const [userInfo, setUserInfo] = useState<UserInfo>();
 
@@ -38,31 +40,31 @@ export const OnBoarding = () => {
   const [plan, setPlan] = useState<PLAN>();
 
   const handleNextStage = () => {
-    switch (currentOnBoardingStage) {
+    switch (currentOnBoardingState.stage) {
       case ONBOARDING_STAGE.WELCOME:
         if (welcomeStageRef.current?.onDone()) {
-          setCurrentOnBoardingStage(
+          setCurrentOnBoardingState(
             getOnBoardingStage(
               ONBOARDING_MOVE_STAGE.NEXT,
-              currentOnBoardingStage
+              currentOnBoardingState
             )
           );
         }
         break;
       case ONBOARDING_STAGE.WORKSPACE:
         if (workspaceStageRef.current?.onDone()) {
-          setCurrentOnBoardingStage(
+          setCurrentOnBoardingState(
             getOnBoardingStage(
               ONBOARDING_MOVE_STAGE.NEXT,
-              currentOnBoardingStage
+              currentOnBoardingState
             )
           );
         }
         break;
       case ONBOARDING_STAGE.PLANNING:
         // No check added because one plan will always be selected at any case
-        setCurrentOnBoardingStage(
-          getOnBoardingStage(ONBOARDING_MOVE_STAGE.NEXT, currentOnBoardingStage)
+        setCurrentOnBoardingState(
+          getOnBoardingStage(ONBOARDING_MOVE_STAGE.NEXT, currentOnBoardingState)
         );
         break;
     }
@@ -88,26 +90,32 @@ export const OnBoarding = () => {
         <IconEdenLogo />
         <div>Eden</div>
       </div>
-      {/* <div>Stepper</div> */}
+      <div className={styles.stepsContainer}>
+        <Steps current={currentOnBoardingState.step}>
+          <Step></Step>
+          <Step></Step>
+          <Step></Step>
+          <Step></Step>
+        </Steps>
+      </div>
       <div className={styles.onBoardingStages}>
-        {currentOnBoardingStage === ONBOARDING_STAGE.WELCOME && (
+        {currentOnBoardingState.stage === ONBOARDING_STAGE.WELCOME && (
           <Welcome ref={welcomeStageRef} onUpdate={onUpdateUserInfo} />
         )}
-        {currentOnBoardingStage === ONBOARDING_STAGE.WORKSPACE && (
+        {currentOnBoardingState.stage === ONBOARDING_STAGE.WORKSPACE && (
           <Workspace ref={workspaceStageRef} onUpdate={onUpdateWorkspaceInfo} />
         )}
-        {currentOnBoardingStage === ONBOARDING_STAGE.PLANNING && (
+        {currentOnBoardingState.stage === ONBOARDING_STAGE.PLANNING && (
           <Planning onUpdate={onUpdatePlan} />
         )}
-        {currentOnBoardingStage === ONBOARDING_STAGE.COMPLETED && userInfo && (
-          <Completed userInfo={userInfo} />
-        )}
+        {currentOnBoardingState.stage === ONBOARDING_STAGE.COMPLETED &&
+          userInfo && <Completed userInfo={userInfo} />}
         <Button
           size={BUTTON_SIZES.LARGE}
           width="360px"
           onClick={handleNextStage}
         >
-          {currentOnBoardingStage !== ONBOARDING_STAGE.COMPLETED
+          {currentOnBoardingState.stage !== ONBOARDING_STAGE.COMPLETED
             ? 'Create Workspace'
             : 'Launch Eden'}
         </Button>
