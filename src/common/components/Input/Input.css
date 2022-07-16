@@ -14,6 +14,27 @@
 
 .ed-text-input-wrapper {
   display: flex;
+}
+
+.ed-text-input-prefix {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-size: 14px;
+  padding: 0 var(--space-12);
+  border: 1px solid;
+  border-color: var(--gray-3);
+  border-radius: var(--border-radius);
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: var(--gray-1);
+  color: var(--text-color-secondary);
+  font-weight: var(--font-weight-600);
+}
+
+.ed-text-input-box {
+  display: flex;
   align-items: center;
   background: #fff;
   border: 1px solid;
@@ -25,9 +46,15 @@
   height: 40px;
   padding: 0 var(--space-12);
   transition: border-color 150ms ease-out;
+  width: 100%;
 }
 
-.ed-text-input-wrapper input {
+.ed-text-input-wrapper > .ed-text-input-prefix ~ .ed-text-input-box {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.ed-text-input-box input {
   width: 100%;
   height: 100%;
   border-radius: var(--border-radius);
@@ -61,13 +88,13 @@
   color: var(--text-color-primary);
 }
 
-.ed-text-input-wrapper:hover,
-.ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+.ed-text-input-box:hover,
+.ed-text-input-box:not(.ed-text-input-error):focus-within {
   border: 1px solid var(--colors-primary-500);
 }
 
-.ed-text-input-wrapper:not(.ed-text-input-error):active,
-.ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+.ed-text-input-box:not(.ed-text-input-error):active,
+.ed-text-input-box:not(.ed-text-input-error):focus-within {
   box-shadow: 0 0 0 4px var(--colors-primary-50);
 }
 
@@ -78,7 +105,7 @@
   margin-top: var(--space-8);
 }
 
-.ed-text-input-wrapper.ed-text-input-error {
+.ed-text-input-box.ed-text-input-error {
   border: 1px solid var(--colors-danger-500);
   margin: 0;
 }
@@ -94,15 +121,15 @@
   cursor: not-allowed;
 }
 
-.ed-text-input-container-disabled .ed-text-input-wrapper:hover,
+.ed-text-input-container-disabled .ed-text-input-box:hover,
 .ed-text-input-container-disabled
-  .ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+  .ed-text-input-box:not(.ed-text-input-error):focus-within {
   border: 1px solid var(--gray-3);
 }
 
 .ed-text-input-container-disabled
-  .ed-text-input-wrapper:not(.ed-text-input-error):active,
+  .ed-text-input-box:not(.ed-text-input-error):active,
 .ed-text-input-container-disabled
-  .ed-text-input-wrapper:not(.ed-text-input-error):focus-within {
+  .ed-text-input-box:not(.ed-text-input-error):focus-within {
   box-shadow: none;
 }

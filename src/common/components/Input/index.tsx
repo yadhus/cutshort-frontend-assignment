@@ -5,6 +5,7 @@ import './Input.css';
 export type TextInputProps = {
   type?: string;
   label?: string | JSX.Element;
+  prefix?: string;
   value?: string;
   placeholder?: string;
   helpText?: string;
@@ -24,6 +25,7 @@ export type TextInputProps = {
 export const Input = (props: TextInputProps) => {
   const {
     label,
+    prefix,
     value = '',
     placeholder,
     helpText,
@@ -81,25 +83,29 @@ export const Input = (props: TextInputProps) => {
           {required && <span className="ed-text-input-required"> *</span>}
         </label>
       )}
-      <div
-        className={`ed-text-input-wrapper  ${
-          hasError || error ? 'ed-text-input-error' : undefined
-        }`}
-      >
-        <input
-          className={`ed-text-input`}
-          value={textValue}
-          onChange={handleTextChange}
-          onBlur={handleTextBlur}
-          onFocus={handleTextFocus}
-          placeholder={placeholder}
-          onClick={handleTextClick}
-          tabIndex={2}
-          readOnly={readOnly}
-          disabled={disabled}
-          autoFocus={autoFocus}
-        />
+      <div className="ed-text-input-wrapper">
+        {prefix && <div className="ed-text-input-prefix">www.eden.com/</div>}
+        <div
+          className={`ed-text-input-box  ${
+            hasError || error ? 'ed-text-input-error' : undefined
+          }`}
+        >
+          <input
+            className={`ed-text-input`}
+            value={textValue}
+            onChange={handleTextChange}
+            onBlur={handleTextBlur}
+            onFocus={handleTextFocus}
+            placeholder={placeholder}
+            onClick={handleTextClick}
+            tabIndex={2}
+            readOnly={readOnly}
+            disabled={disabled}
+            autoFocus={autoFocus}
+          />
+        </div>
       </div>
+
       <div className="ed-text-input-bottom">
         {error && <div className="ed-text-input-error">{error}</div>}
         {helpText && <div className="ed-text-input-help-text">{helpText}</div>}
