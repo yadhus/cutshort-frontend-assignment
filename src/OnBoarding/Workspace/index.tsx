@@ -72,6 +72,7 @@ export const Workspace = forwardRef(
             placeholder="Example"
             onBlur={(val) => onUpdateWorkspaceInfo('workspaceURL', val)}
             fullWidth={true}
+            prefix="www.eden.com/"
           />
         </div>
       </div>
