@@ -1,0 +1,71 @@
+.ed-steps {
+  display: flex;
+}
+
+.ed-step-container {
+  position: relative;
+  margin-right: 36px;
+  margin-left: 36px;
+}
+
+.ed-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--gray-3);
+  width: 36px;
+  height: 36px;
+}
+
+.ed-step-active,
+.ed-step-finish {
+  background-color: var(--colors-primary-500);
+  color: var(--white);
+}
+
+.ed-step-container:not(:last-child)::after {
+  position: absolute;
+  top: 18px;
+  left: 100%;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--gray-2);
+  content: '';
+}
+
+.ed-step-container:not(:first-child)::before {
+  position: absolute;
+  top: 18px;
+  right: 100%;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--gray-2);
+  content: '';
+}
+
+.ed-step-container:not(:first-child) .ed-step-finish::before,
+.ed-step-container:not(:first-child) .ed-step-active::before {
+  position: absolute;
+  top: 18px;
+  right: 100%;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--colors-primary-500);
+  content: '';
+}
+
+.ed-step-container:not(:last-child) .ed-step-finish::after,
+.ed-step-container:not(:last-child) .ed-step-active::after {
+  position: absolute;
+  top: 18px;
+  left: 100%;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--colors-primary-500);
+  content: '';
+}
